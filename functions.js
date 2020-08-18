@@ -53,7 +53,23 @@ let products = [
 let chosenDepartment = "";
 
 function renderProducts() {
-  let html = ""; // Your code here!
+  let html = "";
+
+  html = products
+    .filter((products) => {
+      return products.quantity > 0;
+    })
+    .filter((products) => {
+      return chosenDepartment ? products.department == chosenDepartment : true;
+    })
+    .map((products) => {
+      return `<li> <h3>${products.name}</h3> $${products.price} </li>`;
+    });
+
+  console.log(html);
+
+  // Your code here!
+
   /*
     using the product array
 
